@@ -1,11 +1,12 @@
 import { Router } from "express"
-import { CompanyController } from "../controllers/CompanyController";
 import { errorHandler } from "../../../shared/errors/errorHandler";
 import { EmployeeController } from "../../employee/controllers/EmployeeController";
+import { EmployeeUsecase } from "../useCases/EmployeeUseCase";
+import { InMemoryEmployeeRepository } from "../repositories/inMemoryEmployeeRepository";
 
 
 const router = Router();
-const employeeController = new EmployeeController()
+const employeeController = new EmployeeController(new EmployeeUsecase(new InMemoryEmployeeRepository()))
 
 router.post("/", (req, res, next) => employeeController.create(req, res, next))
 router.get("/", (req, res, next) => employeeController.create(req, res, next))
