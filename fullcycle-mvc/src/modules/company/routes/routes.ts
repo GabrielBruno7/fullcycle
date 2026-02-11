@@ -1,18 +1,17 @@
 import { Router } from "express"
-import { CompanyController } from "../controllers/CompanyController";
 import { errorHandler } from "../../../shared/errors/errorHandler";
-import { EmployeeController } from "../../employee/controllers/EmployeeController";
+import { CompanyController } from "../controllers/CompanyController";
 
 
 const router = Router();
-const employeeController = new EmployeeController()
+const companyController = new CompanyController()
 
-router.post("/", (req, res, next) => employeeController.create(req, res, next))
-router.get("/", (req, res, next) => employeeController.create(req, res, next))
-router.get("/:id", (req, res, next) => employeeController.findById(req, res, next))
-router.get("/companyId/:companyId", (req, res, next) => employeeController.findByCompanyId(req, res, next))
-router.put("/:id", (req, res, next) => employeeController.update(req, res, next))
-router.delete("/:id", (req, res, next) => employeeController.delete(req, res, next))
+router.post("/", (req, res, next) => companyController.create(req, res, next))
+router.get("/", (req, res, next) => companyController.create(req, res, next))
+router.get("/:id", (req, res, next) => companyController.findById(req, res, next))
+router.get("/cnpj/:cnpj", (req, res, next) => companyController.findByCnpj(req, res, next))
+router.put("/:id", (req, res, next) => companyController.update(req, res, next))
+router.delete("/:id", (req, res, next) => companyController.delete(req, res, next))
 
 router.use(errorHandler);
 

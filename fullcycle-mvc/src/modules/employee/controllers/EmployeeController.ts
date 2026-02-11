@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction} from 'express';
 import { EmployeeService } from "../../../interfaces/services/EmployeeService";
 import { validateId } from "../../company/validators/validateId";
-import { validateCnpj } from "../../company/validators/validateCnpj";
 import { responseSuccess } from "../../../shared/helpers/responseSuccess";
 import { validateCreateEmployee } from '../validators/validateCreateEmployee';
 import { validateUpdateEmployee } from '../validators/validateUpdateEmployee';
@@ -15,12 +14,6 @@ export class EmployeeController {
         const employee = await this.employeeService.create(data)
 
         return responseSuccess(res, employee, "Funcionário registrado com sucesso!", 201)
-    }
-
-    async findAll(req: Request, res: Response, next: NextFunction): Promise<Response> {
-        const companies = await this.employeeService.findAll();
-
-        return responseSuccess(res, companies, "Empresas encontradas com sucesso!");
     }
 
     async findByCompanyId(req: Request, res: Response, next: NextFunction): Promise<Response> {
