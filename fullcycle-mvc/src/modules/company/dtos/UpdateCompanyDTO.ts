@@ -1,6 +1,4 @@
-export interface CreateCompanyDTO {
-  name: string;
-  cnpj: string;
+export interface UpdateCompanyDTO {
   email?: string;
   phone?: string;
   address?: {
