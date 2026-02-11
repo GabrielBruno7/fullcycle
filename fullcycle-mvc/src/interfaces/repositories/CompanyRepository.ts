@@ -2,7 +2,7 @@ import { CreateCompanyDTO } from "../../modules/company/dtos/CreateCompanyDTO";
 import { UpdateCompanyDTO } from "../../modules/company/dtos/UpdateCompanyDTO";
 import { Company } from "../../modules/company/models/Company";
 
-export interface CompanyService {
+export interface CompanyRepository {
     create(createCompanyDTO: CreateCompanyDTO): Promise<Company>;
 
     findAll(): Promise<Company[]>;
@@ -13,5 +13,5 @@ export interface CompanyService {
 
     delete(id: string): Promise<unknown>;
 
-    update(id: string, updateCompanyDTO: Partial<UpdateCompanyDTO>): Promise<Company>;
+    update(id: string, updateCompanyDTO: UpdateCompanyDTO): Promise<Company>;
 }

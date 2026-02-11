@@ -16,6 +16,12 @@ export class NotFoundError extends AppError {
     }
 }
 
+export class BadRequestError extends AppError {
+    constructor(message: string) {
+        super(message, 400);
+    }
+}
+
 export class InternalServerError extends AppError {
     constructor(message: string) {
         super(message, 500);

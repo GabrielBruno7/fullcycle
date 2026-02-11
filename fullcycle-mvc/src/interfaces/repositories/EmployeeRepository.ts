@@ -12,5 +12,5 @@ export interface EmployeeRepository {
 
     delete(id: string): Promise<void>;
 
-    update(id: string, updateEmployeeDTO: Partial<UpdateEmployeeDTO>): Promise<Employee>;
+    update(id: string, updateEmployeeDTO: UpdateEmployeeDTO): Promise<Employee>;
 }

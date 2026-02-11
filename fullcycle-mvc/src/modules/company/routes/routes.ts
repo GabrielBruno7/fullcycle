@@ -1,10 +1,11 @@
 import { Router } from "express"
 import { errorHandler } from "../../../shared/errors/errorHandler";
 import { CompanyController } from "../controllers/CompanyController";
+import { companyUseCase } from "../useCases/companyUseCase";
 
 
 const router = Router();
-const companyController = new CompanyController()
+const companyController = new CompanyController(new companyUseCase())
 
 router.post("/", (req, res, next) => companyController.create(req, res, next))
 router.get("/", (req, res, next) => companyController.create(req, res, next))
